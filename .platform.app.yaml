@@ -42,7 +42,7 @@ web:
   upstream: 
     socket_family: "unix"
   commands: 
-    start: "unicorn -l $SOCKET -E production config.ru"
+    start: "bundle exec unicorn -l $SOCKET"
   locations: 
     '/': 
       root: "public"
