@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+  status: MyString
+  user: one
+  level: one
+  material: one
+
+two:
+  title: MyString
+  slug: MyString
+  status: MyString
+  user: two
+  level: two
+  material: two

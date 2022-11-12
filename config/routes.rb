@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+    resources :courses, except:[:new, :create, :show]
     resources :citytowns
     resources :schools
     resources :materials
