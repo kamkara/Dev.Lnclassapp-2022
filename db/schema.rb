@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_12_232702) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_233627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -66,13 +66,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_232702) do
     t.string "title"
     t.string "slug"
     t.string "status"
+    t.string "level_name"
+    t.string "material_name"
     t.uuid "user_id", null: false
-    t.uuid "level_id", null: false
-    t.uuid "material_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["level_id"], name: "index_courses_on_level_id"
-    t.index ["material_id"], name: "index_courses_on_material_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -149,8 +147,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_232702) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "citytowns", "users"
-  add_foreign_key "courses", "levels"
-  add_foreign_key "courses", "materials"
   add_foreign_key "courses", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"

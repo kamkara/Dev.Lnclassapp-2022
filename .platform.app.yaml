@@ -32,7 +32,7 @@ hooks:
     build: |
         bundle install    
     deploy: |
-        bundle exec rake db:migrate
+        bundle exec rake db:migrate:reset
 
 
 

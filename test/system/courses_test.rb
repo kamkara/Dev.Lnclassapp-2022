@@ -14,8 +14,8 @@ class CoursesTest < ApplicationSystemTestCase
     visit courses_url
     click_on "New course"
 
-    fill_in "Level", with: @course.level_id
-    fill_in "Material", with: @course.material_id
+    fill_in "Level name", with: @course.level_name
+    fill_in "Material name", with: @course.material_name
     fill_in "Slug", with: @course.slug
     fill_in "Status", with: @course.status
     fill_in "Title", with: @course.title
@@ -30,8 +30,8 @@ class CoursesTest < ApplicationSystemTestCase
     visit course_url(@course)
     click_on "Edit this course", match: :first
 
-    fill_in "Level", with: @course.level_id
-    fill_in "Material", with: @course.material_id
+    fill_in "Level name", with: @course.level_name
+    fill_in "Material name", with: @course.material_name
     fill_in "Slug", with: @course.slug
     fill_in "Status", with: @course.status
     fill_in "Title", with: @course.title

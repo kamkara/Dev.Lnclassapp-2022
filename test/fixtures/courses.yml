@@ -4,14 +4,14 @@ one:
   title: MyString
   slug: MyString
   status: MyString
+  level_name: MyString
+  material_name: MyString
   user: one
-  level: one
-  material: one
 
 two:
   title: MyString
   slug: MyString
   status: MyString
+  level_name: MyString
+  material_name: MyString
   user: two
-  level: two
-  material: two

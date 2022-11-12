@@ -1,9 +1,13 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :set_course, only: %i[  show edit update destroy ]
+  before_action :find_levels, :find_materials
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+   #@courses = Course.feed.includes(:flashes, :user_echanges).all_ordered
+    @courses = Course.feed.all_ordered.includes(:flashes)
+
   end
 
   # GET /courses/1 or /courses/1.json
@@ -21,11 +25,11 @@ class CoursesController < ApplicationController
 
   # POST /courses or /courses.json
   def create
-    @course = Course.new(course_params)
+    @course = current_user.courses.build(course_params)
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to course_url(@course), notice: "Course was successfully created." }
+        format.html { redirect_to feed_path, notice: "La léçon est publiée." }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -60,11 +64,19 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.friendly.find(params[:id])
+    end
+
+    def find_levels
+      @levels = Level.all
+    end
+
+    def find_materials
+      @materials = Material.all
     end
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:title, :content, :slug, :status, :user_id, :level_id, :material_id)
+      params.require(:course).permit(:title, :content, :level_name, :material_name, :status, :published, :slug, :user_id)
     end
 end

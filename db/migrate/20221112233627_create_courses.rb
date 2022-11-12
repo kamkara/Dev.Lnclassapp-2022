@@ -4,9 +4,9 @@ class CreateCourses < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :slug
       t.string :status
+      t.string :level_name
+      t.string :material_name
       t.belongs_to :user, null: false, foreign_key: true, type: :uuid
-      t.belongs_to :level, null: false, foreign_key: true, type: :uuid
-      t.belongs_to :material, null: false, foreign_key: true, type: :uuid
 
       t.timestamps
     end
