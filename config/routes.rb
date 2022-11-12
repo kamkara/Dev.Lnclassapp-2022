@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/home'
   resources :citytowns
   resources :schools
   resources :materials
