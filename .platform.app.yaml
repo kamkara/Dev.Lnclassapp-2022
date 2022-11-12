@@ -32,7 +32,8 @@ hooks:
     build: |
         bundle install    
     deploy: |
-        RACK_ENV=production bundle exec rake db:migrate:reset
+        bundle exec rake db:migrate
+
 
 
 mounts:
