@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
-  get 'dashboard/home'
-  resources :citytowns
-  resources :schools
-  resources :materials
-  resources :levels
+  
+    resources :citytowns
+    resources :schools
+    resources :materials
+    resources :levels
+
+    #Courses
+    #get "feed", to:"courses#index"
+    get "show-course", to:"courses#show"
+    get "new-course", to:"courses#new"
 
     #Membership
     get "teacher-sign-up" , to:'membership#teacherUp'
@@ -13,6 +17,15 @@ Rails.application.routes.draw do
     get "ambassadeur-sign-in" , to:'membership#ambassadorIn'
     get "team-sign-up" , to:'membership#teamUp'
     get "team-sign-in" , to:'membership#teamIn'
+
+     #Dashboard
+  get "feed", to:'dashboard#index'
+  get "dashboard", to:'dashboard#index'
+  get "setting", to:'dashboard#home'
+  get "new-materials", to:"materials#new"
+  get "new-levels", to:"levels#new"
+  get "new-city", to:"citytowns#new"
+  get "new-school", to:"schools#new"
 
     #Membership 
     devise_scope :user do
