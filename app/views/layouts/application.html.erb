@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="<%= language %>">
-  <head>
-    <!-- Analytics-->
-    <%= render "shared/analytics/analytics" %>
-    <!-- Metas-->
-    <title><%= title %></title>
-    <meta name="language" content="<%= language %>">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0 ">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="description" content="<%= description %>">
-    <meta name="keywords" content="<%= keywords %>">
-    <meta name="application-name" content="<%= app_name %>">
-    <meta name="theme-color" content="<%= theme_color %>">
-    <meta name="msapplication-TileColor" content="<%= tileColor %>">
+    <head>
+        <!-- Analytics-->
+        <%= render "shared/analytics/analytics" %>
+        <!-- Metas-->
+        <title><%= title %></title>
+        <meta name="language" content="<%= language %>">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0 ">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="robots" content="index,follow">
+        <meta name="googlebot" content="index,follow">
+        <meta name="description" content="<%= description %>">
+        <meta name="keywords" content="<%= keywords %>">
+        <meta name="application-name" content="<%= app_name %>">
+        <meta name="theme-color" content="<%= theme_color %>">
+        <meta
+        name="msapplication-TileColor" content="<%= tileColor %>">
 
-    <!-- Favicon-->
-    <%= favicon_link_tag asset_path('favicons/favicon-48x48.ico') %>
-    <%= favicon_link_tag asset_path('favicons/favicon-16x16.png', rel:"icon", type:"image/png", sizes:"32x32") %>
-    <%= favicon_link_tag asset_path('favicons/favicon-32x32.png', rel:"icon", type:"image/png", sizes:"32x32") %>
-    
-    
-    <!-- Home page assets-->
-    <style type="text/css">
-    <%= render "shared/normalize/normalize" %>
-    <%#= render "layouts/HomePageStyles/style" %>
-		</style>
-		<link href="https://fonts.googleapis.com/css?family=Source+Serif Pro:700|Raleway:600,400,500|Abril+Fatface:400&amp;display=fallback" rel="stylesheet">
-    
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+        <!-- Favicon-->
+        <%= favicon_link_tag asset_path('favicons/favicon-48x48.ico') %>
+        <%= favicon_link_tag asset_path('favicons/favicon-16x16.png', rel:"icon", type:"image/png", sizes:"32x32") %>
+        <%= favicon_link_tag asset_path('favicons/favicon-32x32.png', rel:"icon", type:"image/png", sizes:"32x32") %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
 
-<body class="bg-black"></body>
-    <%= yield %>
+        <!-- Home page assets-->
+        <style type="text/css">
+            <%= render "shared/normalize/normalize" %>
+            <%#= render "layouts/HomePageStyles/style" %>
+        </style>
+        <link href="https://fonts.googleapis.com/css?family=Source+Serif Pro:700|Raleway:600,400,500|Abril+Fatface:400&amp;display=fallback" rel="stylesheet">
 
-  <!-- Scripts Js-->
-  <script defer="defer" src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
-  <%#= render "shared/automations/tidio" %>
 
-  </body>
+        <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+        <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+        <%= javascript_importmap_tags %>
+    </head>
+
+    <body class="bg-black">
+        <%= yield %>
+
+        <!-- Scripts Js-->
+        <script defer="defer" src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+        <%#= render "shared/automations/tidio" %>
+
+    </body>
 </html>
+
